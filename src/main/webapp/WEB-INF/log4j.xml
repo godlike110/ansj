@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender class="org.apache.log4j.ConsoleAppender" name="CONSOLE">
+        <param value="System.out" name="Target" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param value="[framework] %d - %c -%-4r [%t] %-5p %c %x - %m%n"
+                   name="ConversionPattern" />
+        </layout>
+    </appender>
+
+    <!-- 正式环境 -->
+    <!-- <appender name="statAppender" class="cn.focus.dc.log.log4j.appender.HttpAppender">
+		<param name="Url" value="http://10.16.0.207:9000" />
+		<param name="RulePath" value="xinfang.wap" />
+		<param name="PoolMaxTotal" value="2000" />
+		<param name="DefaultMaxPerRoute" value="1000" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m" />
+		</layout>
+	</appender>
+	
+	<appender name="statAccessAppender" class="cn.focus.dc.log.log4j.appender.HttpAppender">
+		<param name="Url" value="http://10.16.0.207:9000" />
+		<param name="RulePath" value="xinfang.wap.access" />
+		<param name="PoolMaxTotal" value="2000" />
+		<param name="DefaultMaxPerRoute" value="1000" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m" />
+		</layout>
+	</appender> -->
+
+	<!-- 测试环境 -->
+	<appender name="statAppender" class="cn.focus.dc.log.log4j.appender.HttpAppender">
+		<param name="Url" value="http://10.16.0.235:9999" />
+		<param name="RulePath" value="xinfang.test" />
+		<param name="PoolMaxTotal" value="2000" />
+		<param name="DefaultMaxPerRoute" value="1000" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m" />
+		</layout>
+	</appender>
+	
+	<appender name="statAccessAppender" class="cn.focus.dc.log.log4j.appender.HttpAppender">
+		<param name="Url" value="http://10.16.0.235:9999" />
+		<param name="RulePath" value="xinfang.access.test" />
+		<param name="PoolMaxTotal" value="2000" />
+		<param name="DefaultMaxPerRoute" value="1000" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m" />
+		</layout>
+	</appender>
+	
+	<!-- 通用配置 -->
+    <appender class="org.apache.log4j.net.SyslogAppender" name="syslog">
+        <param value="LOCAL1" name="Facility" />
+        <param value="true" name="header" />
+        <param value="10.16.0.207" name="SyslogHost" />
+        <param value="INFO" name="Threshold" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param value="[framework] %d - %c -%-4r [%t] %-5p %c %x - %m%n"
+                   name="ConversionPattern" />
+        </layout>
+    </appender>
+	
+    <appender name="statAsyncAppender" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="statAppender"/>
+    </appender>
+    <appender name="statAccessAsyncAppender" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="statAccessAppender"/>
+    </appender>
+    
+	<logger name="statAccesslog" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="statAccessAppender" />
+	</logger>
+	<logger name="statlog" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="statAppender" />
+	</logger>
+	
+    <logger name="cn.focus"  additivity="true">
+        <level value="error" />
+    </logger>
+    <logger name="com.sohu"  additivity="true">
+        <level value="error" />
+    </logger>
+    <logger name="org.springframework" additivity="true">
+        <level value="error" />
+    </logger>
+
+    <root>
+        <level value="error" />
+        <appender-ref ref="CONSOLE" />
+    </root>
+</log4j:configuration>

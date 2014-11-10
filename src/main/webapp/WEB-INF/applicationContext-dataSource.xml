@@ -1,0 +1,29 @@
+﻿<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 本机测试环境 和 156测试环境数据源配置 -->
+	<beans profile="local，test_sce,test,product">
+		<bean id="jade.dataSource.newscenter" class="org.apache.commons.dbcp.BasicDataSource"
+			destroy-method="close">
+			<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+			<property name="url"
+				value="jdbc:mysql://10.10.90.156:3306/news_center?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull" />
+			<property name="username" value="develop" />
+			<property name="password" value="p3m12d" />
+			<property name="maxActive" value="20" />
+			<property name="maxIdle" value="10" />
+			<property name="maxWait" value="1000" />
+			<property name="testOnBorrow" value="true" />
+			<property name="testWhileIdle" value="true" />
+			<property name="removeAbandoned" value="true" />
+			<property name="removeAbandonedTimeout" value="1000" />
+			<property name="validationQuery" value="select 1" />
+			<property name="poolPreparedStatements" value="true" />
+			<property name="defaultAutoCommit" value="true" />
+		</bean>
+
+	</beans>
+
+</beans>

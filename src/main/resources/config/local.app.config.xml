@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appconfig>
+	<interface>
+		<!-- 楼盘动态接口 -->
+		<php_interface>
+			<loupan>http://house.focus.cn/common/loupan/mobile/index.php?version=3.0.0&amp;func={func}&amp;buildid={buildid}&amp;cityid={cityid}&amp;pageindex={pageindex}&amp;pagesize={pagesize}
+			</loupan>
+		</php_interface>
+
+		<!-- 新闻资讯接口 -->
+		<news>
+			<url>http://urlfetch.sce.sohu.com/http/api.k.sohu.com/api/open/channel/newsList.go?channelId={channelId}&amp;page={pageNo}&amp;num={pageSize}
+			</url>
+		</news>
+		
+		<!-- 分享参数验证开关 -->
+		<daogou>
+		   <controller>false</controller>
+		</daogou>
+
+		<building>
+			<building_base>
+				<url>http://10.10.90.156/building_inf/proj/base_info?cityId={cityId}&amp;projId={projId}
+				</url>
+			</building_base>
+			<building_info>
+				<url>http://10.10.90.156/building_inf/proj/detail/show_with_area?groupId={groupId}
+				</url>
+			</building_info>
+			<building_detail>
+				<url>http://10.10.90.156/building_inf/proj/detail?groupId={groupId}
+				</url>
+			</building_detail>
+			<building_layout_pic>
+				<url>http://10.10.90.156/building_inf/photo/room/list?groupId={groupId}
+				</url>
+			</building_layout_pic>
+			<building_city>
+				<url>http://10.10.90.156/building_inf/dict/city/list?cityIds={cityIds}
+				</url>
+			</building_city>
+			<building_ids_list>
+				<url>http://10.10.90.156/building_inf/proj/list_by_ids?groupIds={groupIds}
+				</url>
+			</building_ids_list>
+			<building_search_con>
+				<url>http://10.10.90.156/building_inf/dict/search/tab?cityId={cityId}
+				</url>
+			</building_search_con>
+			<building_around>
+				<url>http://10.10.90.156/building_inf/proj/around?groupId={groupId}&amp;limit={limit}
+				</url>
+			</building_around>
+			<building_pic_list>
+				<url>http://10.10.90.156/building_inf/photo/search/list?groupId={groupId}&amp;isAll=true
+				</url>
+			</building_pic_list>
+			<secretkey>1234567890</secretkey>
+		</building>
+		<active>
+			<info>
+				<url>http://dev.house.focus.cn/common/loupan/api/?city_id={city_id}&amp;func=dianshang_list&amp;group_id={group_id}&amp;mod=wap</url>
+			</info>
+			<regist>
+			    <url>http://dev.house.focus.cn/common/loupan/api/?active_id={active_id}&amp;addmember={addmember}&amp;cellphone={cellphone}&amp;city_id={city_id}&amp;func=dianshang_apply&amp;mod=wap&amp;name={name}&amp;source=wap</url>
+			</regist>
+		</active>
+		
+		<city>
+		  <location>
+		       <url>http://restapi.amap.com/v3/geocode/regeo?location={location}&amp;extensions=base&amp;output=json&amp;key=9e4b883b2a6d8482638c56b6f60078b7</url>
+		  </location>		
+		</city>
+		
+		<capture>
+		  <url>http://captcha.sohusce.com/c.png?id=</url>
+		  <verifyurl>http://captcha.sohusce.com/verify.jsp?id={id}&amp;answer={answer}</verifyurl>
+		</capture>
+		
+	</interface>
+</appconfig>

@@ -1,0 +1,45 @@
+<config charset="gbk">  
+
+<!-- 页面爬取开始,按照关键词：来搜索 -->  
+<var-def name="start" id="startpage">  
+<!--获得类中传入连接地址--> 
+<var-def name="baiduURL" overwrite="false"></var-def> 
+<!--获得类中传入存储文件名--> 
+<var-def name="fileName" overwrite="false"></var-def> 
+<html-to-xml>  
+<http url="${baiduURL}"/>  
+</html-to-xml>  
+</var-def>  
+
+<!-- 获取网站列表 -->  
+<var-def name="urlList" id="urlList">  
+<xpath expression="//table[@class='result']">  
+<var name="start"/>  
+</xpath>  
+</var-def>  
+
+<!-- 循环 urlList ，并把结果写入到XML文件中 -->  
+  <file action="write" path="${fileName}.xml" charset="utf-8">  
+  <![CDATA[ <catalog> ]]>  
+  <loop item="item" index="i">  
+  <list><var name="urlList"/></list>  
+  <body>  
+  <xquery>  
+  <xq-param name="item" type="node()"><var name="item"/></xq-param>  
+  <xq-expression><![CDATA[  
+  declare variable $item as node() external;  
+
+  let $name := data($item//tr/td/a/font)   
+  let $url := data($item//tr/td/a[1]/@href)  
+  return  
+  <website>  
+  <name>{normalize-space($name)}</name>  
+  <url>{normalize-space($url)}</url>  
+  </website>  
+  ]]></xq-expression>  
+  </xquery>  
+  </body>  
+  </loop>  
+  <![CDATA[ </catalog> ]]>  
+  </file>  
+</config> 

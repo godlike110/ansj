@@ -1,0 +1,31 @@
+ ${test}
+
+<form action="/upload/doUpload" method="post">
+	<font color=black size=3>请选择上传页面: &nbsp&nbsp&nbsp</font>
+	<input
+		type="file" name="file" />
+		<br /> <br /> 
+		<font color=black size=3>请制定访问url:
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</font>
+		<input class="input" type="text"
+		name="path" value="/" />
+		<br /> 
+		<input type=hidden value="${env}"
+		name="env"> <br /> 
+		<input class="submit" type="submit"
+		value="提交">
+</form>
+
+
+<form action="" method="post">
+每组训练集包含的房产新闻数目: 
+<input type="text" name="m1" />
+<br />
+
+每组训练集包含的非房产新闻数目: 
+<input type="text" name="m2" />
+<br />
+
+Last name: 
+<input type="text" name="lastname" />
+</form>

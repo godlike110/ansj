@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appconfig>
+	<!-- 调用外部接口的配置信息 -->
+	<interface>
+        <!-- 楼盘动态接口 -->
+        <php_interface>
+            <loupan>http://urlfetch.sce.sohu.com/http/house.focus.cn/common/loupan/mobile/index.php?version=3.0.0&amp;func={func}&amp;buildid={buildid}&amp;cityid={cityid}&amp;pageindex={pageindex}&amp;pagesize={pagesize}</loupan>
+            <loupan_detail>http://urlfetch.sce.sohu.com/http/dev.house.focus.cn/common/loupan/api/?mod=wap&amp;func=wap_movement_info&amp;city_id={cityId}&amp;info_ids={infoId}</loupan_detail>
+            <loupan_detail_html>http://urlfetch.sce.sohu.com/http/dev.house.focus.cn/common/loupan/api/?mod=wap&amp;func=wap_movement_info&amp;city_id={cityId}&amp;info_ids={infoId}&amp;html=1</loupan_detail_html>
+        </php_interface>
+		
+		<!-- 新闻资讯接口 -->
+		<news>
+			<url>http://urlfetch.sce.sohu.com/http/api.k.sohu.com/api/open/channel/newsList.go?channelId={channelId}&amp;page={pageNo}&amp;num={pageSize}</url>
+		</news>
+		
+		<!-- 分享参数验证开关 -->
+		<daogou>
+		   <controller>false</controller>
+		</daogou>
+
+        <!-- 楼盘中心相关接口 -->
+		<building>
+			<building_base>
+				<url>http://wap-building.apps.sohuno.com/proj/base_info?cityId={cityId}&amp;projId={projId}</url>
+			</building_base>
+			<building_info>
+				<url>http://wap-building.apps.sohuno.com/proj/detail/show_with_area?groupId={groupId}</url>
+			</building_info>
+			<building_detail>
+				<url>http://wap-building.apps.sohuno.com/proj/detail?groupId={groupId}</url>
+			</building_detail>
+			<building_layout_pic>
+				<url>http://wap-building.apps.sohuno.com/photo/room/list?groupId={groupId}</url>
+			</building_layout_pic>
+			<building_city>
+				<url>http://wap-building.apps.sohuno.com/dict/city/list?cityIds={cityIds}</url>
+			</building_city>
+			<building_ids_list>
+				<url>http://wap-building.apps.sohuno.com/proj/list_by_ids?groupIds={groupIds}</url>
+			</building_ids_list>
+			<building_search_con>
+				<url>http://wap-building.apps.sohuno.com/dict/search/tab?cityId={cityId}</url>
+			</building_search_con>
+			<building_around>
+				<url>http://wap-building.apps.sohuno.com/proj/around?groupId={groupId}&amp;limit={limit}</url>
+			</building_around>
+			<building_pic_list>
+				<url>http://wap-building.apps.sohuno.com/photo/search/list?groupId={groupId}&amp;isAll=true</url>
+			</building_pic_list>
+			<!-- 
+			<secretkey>e0cd45bf9ee7773cc9b72bd824f3b35c</secretkey>
+			 -->
+		</building>
+		
+		<news_center>
+			<normal_news_digest>
+				<url>http://focus-newscenter.apps.sohuno.com/news/getinfo?cityId={cityId}&amp;newsId={newsId}</url>
+			</normal_news_digest>
+			<normal_news_content>
+				<url>http://focus-newscenter.apps.sohuno.com/news/page/info?allFlag={allFlag}&amp;needGraph={needGraph}&amp;needSummary={needSummary}&amp;newsId={newsId}&amp;pageNo={pageNo}&amp;picType={picType}&amp;source={source}</url>
+			</normal_news_content>
+			<related_news>
+				<url>http://focus-newscenter.apps.sohuno.com/news/related/list?newsId={newsId}&amp;pageNo={pageNo}&amp;pageSize={pageSize}</url>
+			</related_news>
+			<!-- 
+			<secretkey>f6a7a07c42ddfcf08947a8e2738f43a5</secretkey>
+			 -->
+		</news_center>
+
+		<active>
+			<info>
+				<url>http://urlfetch.sce.sohu.com/http/dev.house.focus.cn/common/loupan/api/?city_id={city_id}&amp;func=dianshang_list&amp;group_id={group_id}&amp;mod=wap</url>
+			</info>
+			<regist>errcode
+			<url>http://urlfetch.sce.sohu.com/http/dev.house.focus.cn/common/loupan/api/?active_id={active_id}&amp;addmember={addmember}&amp;cellphone={cellphone}&amp;city_id={city_id}&amp;func=dianshang_apply&amp;mod=wap&amp;name={name}&amp;source=wap</url>
+			</regist>
+		</active>
+		
+		<!-- 爬房团相关接口 -->
+		<pafangtuan>
+			<line_info>
+				<url>http://urlfetch.sce.sohu.com/http/kanfangtuan.focus.cn/app/line/getone/?_t={_t}&amp;_v={_v}&amp;appid={appid}&amp;city={city}&amp;line_id={line_id}&amp;token={token}</url>
+			</line_info>
+			<tips>
+				<url>http://urlfetch.sce.sohu.com/http/kanfangtuan.focus.cn/app/qa/list/?_t={_t}&amp;_v={_v}&amp;appid={appid}&amp;city={city}&amp;token={token}</url>
+			</tips>
+			<signup>
+				<url>http://urlfetch.sce.sohu.com/http/kanfangtuan.focus.cn/app/line/apply/?_t={_t}&amp;_v={_v}&amp;appid={appid}&amp;city={city}&amp;line_id={line_id}&amp;mobile={mobile}&amp;real_name={real_name}&amp;token={token}</url>
+			</signup>
+			<secretkey>2980dacb4f8e8b45a6fa7a92e678bfba</secretkey>
+		</pafangtuan>
+		
+		<xinfang>
+			<type_id_relation>
+				<url>http://focus-xinfang-api.apps.sohuno.com/openapi/buildtypemap/list?cityId={cityId}</url>
+			</type_id_relation>
+			<daogou_list>			
+				<url>http://focus-xinfang-api.apps.sohuno.com/wap/buildpropose/list?auth=8b306ea84ac844d68b012e6583c06647&amp;cityId={cityId}&amp;pageNo={pageNo}&amp;pageSize={pageSize}</url>
+			</daogou_list>
+			<daogou_content>
+				<url>http://focus-xinfang-api.apps.sohuno.com/wap/buildpropose?auth=8b306ea84ac844d68b012e6583c06647&amp;proposeId={proposeId}&amp;cityId={cityId}</url>
+			</daogou_content>
+			<fav_add>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/fav/add?itemId={itemId}&amp;srcUid={srcUid}&amp;type={type}&amp;uid={uid}</url>
+			</fav_add>
+			<fav_delete>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/fav/delete?itemId={itemId}&amp;type={type}&amp;uid={uid}</url>
+			</fav_delete>
+			<fav_list>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/fav/list?type={type}&amp;uid={uid}</url>
+			</fav_list>
+			<is_fav>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/fav/isfav?itemId={itemId}&amp;type={type}&amp;uid={uid}</url>
+			</is_fav>
+			<useful_add>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/useful/add?itemId={itemId}&amp;srcUid={srcUid}&amp;type={type}&amp;uid={uid}</url>
+			</useful_add>
+			<useful_delete>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/useful/delete?itemId={itemId}&amp;type={type}&amp;uid={uid}</url>
+			</useful_delete>
+			<is_useful>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/useful/isuseful?itemId={itemId}&amp;type={type}&amp;uid={uid}</url>
+			</is_useful>
+			<house_fav_add>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/house/fav/add?groupId={groupId}&amp;uid={uid}</url>
+			</house_fav_add>
+			<house_fav_delete>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/house/fav/delete?groupIds={groupIds}&amp;uid={uid}</url>
+			</house_fav_delete>
+			<house_fav_list>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/house/fav/list?pageNo={pageNo}&amp;pageSize={pageSize}&amp;uid={uid}</url>
+			</house_fav_list>
+			<question_add>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/question/add?groupId={groupId}&amp;isAnonymnous={isAnonymnous}&amp;question={question}&amp;uid={uid}</url>
+			</question_add>
+			<question_delete>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/question/delete?questionIds={questionIds}&amp;uid={uid}</url>
+			</question_delete>
+			<question_list>
+				<url>http://focus-xinfang-api.apps.sohuno.com/v4/wap/question/user?pageNo={pageNo}&amp;pageSize={pageSize}&amp;uid={uid}</url>
+			</question_list>
+			
+			
+			<pafangtuan_city_info>
+			    <url>http://focus-xinfang-app.sohusce.com/v4/wap/houselooking/cityinfo?cityId={cityId}</url>
+			</pafangtuan_city_info>
+			
+			<pafangtuan_list>
+			    <url>http://focus-xinfang-app.sohusce.com/v4/wap/houselooking/list?cityId={cityId}&amp;endDate={endDate}&amp;pageNo={pageNo}&amp;pageSize={pageSize}</url>
+			</pafangtuan_list>
+			
+			<pafangtuan_info>
+			    <url>http://focus-xinfang-app.sohusce.com/v4/wap/houselooking/detail?cityId={cityId}&amp;lineId={lineId}</url>
+			</pafangtuan_info>
+			
+			<pafangtuan_sign>
+			    <url>http://focus-xinfang-app.sohusce.com/v4/wap/houselooking/signup?cityId={cityId}&amp;lineId={lineId}&amp;mobile={mobile}&amp;name={name}&amp;uid={uid}</url>
+			</pafangtuan_sign>
+			<pafangtuan_sign_nouid>
+				<url>http://focus-xinfang-app.sohusce.com/v4/wap/houselooking/signup?cityId={cityId}&amp;lineId={lineId}&amp;mobile={mobile}&amp;name={name}</url>
+			</pafangtuan_sign_nouid>
+			
+			<pafangtuan_declaration>
+				<url>http://focus-xinfang-app.sohusce.com/v4/wap/houselooking/notice</url>
+			</pafangtuan_declaration>
+			<pafangtuan_tips>
+				<url>http://focus-xinfang-app.sohusce.com/v4/wap/houselooking/tips?cityId={cityId}</url>
+			</pafangtuan_tips>
+
+			<daogou_by_groupId>
+			    <url>http://focus-xinfang-app.sohusce.com/v4/wap/buildpropose/list?groupId={groupId}&amp;limit={limit}</url>
+			</daogou_by_groupId>
+			
+			<daogou_pc_by_groupId>
+			<url>http://focus-xinfang-app.sohusce.com/v4/wap/buildpropose/pcproposelist?groupId={groupId}&amp;pageNo={pageNo}&amp;pageSize={pageSize}</url>
+			</daogou_pc_by_groupId>
+			
+		    <daogoulist_by_cityId>
+			  <url>http://focus-xinfang-app.sohusce.com/v4/wap/buildpropose/pclist?cityId={cityId}&amp;pageNo={pageNo}&amp;pageSize={pageSize}</url>
+			</daogoulist_by_cityId>
+			
+			<daogou_detail>
+				<url>http://focus-xinfang-app.sohusce.com/v4/wap/buildpropose/pcdetail?cityId={cityId}&amp;proposeId={proposeId}</url>
+			</daogou_detail>
+			
+			<editor_comment>
+			    <url>http://focus-xinfang-app.sohusce.com/wap/editorrecommend/list?groupId={groupId}</url>
+			</editor_comment>
+			
+		</xinfang>
+		
+		
+		<city>
+		  <location>
+		       <url>http://restapi.amap.com/v3/geocode/regeo?location={location}&amp;extensions=base&amp;output=json&amp;key=9e4b883b2a6d8482638c56b6f60078b7</url>
+		  </location>		
+		</city>
+		
+		<capture>
+		  <url>http://captcha.sohusce.com/c.png?id=</url>
+		  <verifyurl>http://captcha.sohusce.com/verify.jsp?id={id}&amp;answer={answer}</verifyurl>
+		</capture>
+		
+	</interface>
+	<!-- 日志读取线程数 -->
+	<log_thread_count>3</log_thread_count>
+	
+	<!-- 是否开启发送日志功能 -->
+	<log_open>false</log_open>
+	<lc>
+		<log>
+			<appId>1007</appId>
+			<logType>test</logType>
+			<singleUrl>http://focus-lc.apps.sohuno.com/server/log</singleUrl>
+			<multiUrl>http://focus-lc.apps.sohuno.com/server/logs</multiUrl>
+			<connectRequestTimeout>3000</connectRequestTimeout>
+			<connectTimeout>3000</connectTimeout>
+		</log>
+	</lc>
+	<sce>
+		<appid>10236</appid>
+		<secret>70057ef5fbe025e6c23d7bc0e73879b7</secret>
+	</sce>
+	
+</appconfig>
